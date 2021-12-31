@@ -1,0 +1,15 @@
+version: "3"
+services:
+  react:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:3000"
+    volumes:
+      - /src/app/node_modules
+      - ./:/src/app
+    stdin_open: true
+    container_name: my-react
+    environment:
+      - CHOKIDAR_USEPOLLING=true
